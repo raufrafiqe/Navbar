@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Utilizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+<textarea name="Text" class="h-[200px] w-[50%] border-4 border-black"></textarea>
+<div class="h-[200px] w-[50%] border-4 border-black flex flex-wrap justify-between">
+<button class="h-[60px] w-[120px] border-4 border-black">UpperCase</button>
+<button class="h-[60px] w-[120px] border-4 border-black">LowerCase</button>
+<button class="h-[60px] w-[120px] border-4 border-black">Capitilize</button>
+<button class="h-[60px] w-[120px] border-4 border-black">Clear</button>
+<button class="h-[60px] w-[120px] border-4 border-black">Copy</button>
+<button class="h-[60px] w-[120px] border-4 border-black">Remove</button>
+<button class="h-[60px] w-[120px] border-4 border-black">BackSpace</button>
+<button class="h-[60px] w-[120px] border-4 border-black">Total Words</button>
+</div>
+
+<script>
+    var btns=document.querySelectorAll('button')
+    var inp=document.querySelector('textarea')
+    btns.forEach((bt)=>{
+      bt.addEventListener('click',(b)=>{
+        if(b.target.innerText == 'UpperCase'){
+        var a=inp.value.toUpperCase()
+        inp.value=a
+        }
+        if(b.target.innerText == 'LowerCase'){
+        var a=inp.value.toLowerCase()
+        inp.value=a
+        }
+        if(b.target.innerText == 'Capitilize'){
+            var a=inp.value.charAt(0).toUpperCase()+inp.value.slice(1)
+            inp.value=a
+        }
+        if(b.target.innerText == 'Clear'){
+            var a=inp.value=""
+            inp.value=a
+        }
+        if(b.target.innerText == 'Copy'){
+           inp.select();
+            navigator.clipboard.writeText(inp.value);
+        }
+        if(b.target.innerText == 'BackSpace'){
+            var a=inp.value.slice(0,-1)
+            inp.value=a
+        }
+        if(b.target.innerText == 'Remove'){
+            var a=inp.value.split(` `).join('')
+            inp.value=a
+        }
+        if(b.target.innerText=='Total Words'){
+            
+        }
+      })
+    })
+</script>
+</body>
+</html>
